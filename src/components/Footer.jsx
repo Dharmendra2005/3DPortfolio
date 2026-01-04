@@ -42,11 +42,6 @@ export function Footer() {
               </li>
               <li>
                 <a href="#" className="hover:text-purple-400 transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-purple-400 transition-colors">
                   Resume
                 </a>
               </li>

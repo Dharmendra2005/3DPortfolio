@@ -112,7 +112,7 @@ export function Hero3DScene() {
             whileTap={{ scale: 0.95 }}
             className="px-8 py-3 bg-gradient-to-r from-purple-600 to-purple-700 rounded-lg font-semibold text-white hover:shadow-lg transition-all"
           >
-            View Projects
+            View Resume
           </motion.button>
           <motion.button
             whileHover={{

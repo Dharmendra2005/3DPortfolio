@@ -118,6 +118,78 @@ export function AboutMe() {
               </svg>
             </motion.div>
 
+            {/* Bootstrap Icon */}
+            <motion.div
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, delay: 1.5 }}
+              className="absolute bottom-20 left-6 glass-effect p-6 rounded-lg"
+            >
+              <svg
+                className="w-12 h-12 text-purple-500"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <rect width="24" height="24" fill="currentColor" rx="3" />
+                <text
+                  x="50%"
+                  y="50%"
+                  dominantBaseline="middle"
+                  textAnchor="middle"
+                  className="text-white font-bold"
+                >
+                  BS
+                </text>
+              </svg>
+            </motion.div>
+
+            {/* Tailwind Icon */}
+            <motion.div
+              animate={{ y: [0, 15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, delay: 2 }}
+              className="absolute top-10 right-20 glass-effect p-6 rounded-lg"
+            >
+              <svg
+                className="w-12 h-12 text-cyan-300"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <rect width="24" height="24" fill="currentColor" rx="3" />
+                <text
+                  x="50%"
+                  y="50%"
+                  dominantBaseline="middle"
+                  textAnchor="middle"
+                  className="text-white font-bold"
+                >
+                  TW
+                </text>
+              </svg>
+            </motion.div>
+
+            {/* TypeScript Icon */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, delay: 2.5 }}
+              className="absolute bottom-6 right-28 glass-effect p-6 rounded-lg"
+            >
+              <svg
+                className="w-12 h-12 text-blue-600"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <rect width="24" height="24" fill="currentColor" rx="3" />
+                <text
+                  x="50%"
+                  y="50%"
+                  dominantBaseline="middle"
+                  textAnchor="middle"
+                  className="text-white font-bold"
+                >
+                  TS
+                </text>
+              </svg>
+            </motion.div>
+
             {/* Center Glow */}
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
@@ -140,23 +212,28 @@ export function AboutMe() {
               />
 
               <p className="text-lg text-gray-300 leading-relaxed">
-                With expertise in modern web technologies, I create elegant
-                solutions to complex problems. I combine design thinking with
-                technical excellence to deliver projects that matter.
+                I am a Computer Science and Engineering student undergraduate at
+                the Indian Institute of Information Technology, Dharwad. I have
+                hands-on experience in building web applications using modern
+                technologies such as React.js, JavaScript, HTML, and CSS, along
+                with exposure to AI and AutoML frameworks like H2O.ai.
               </p>
 
               <p className="text-lg text-gray-300 leading-relaxed">
-                Currently exploring AI/ML, cloud architecture, and full-stack
-                development. When I'm not coding, I'm learning new technologies
-                and contributing to open-source projects.
+                I enjoy developing scalable, user-focused applications and have
+                worked on projects ranging from AI-powered recommendation
+                systems to task management applications and interactive games.
+                Through hackathons and personal projects, I have developed
+                problem-solving skills, teamwork abilities, and the capacity to
+                deliver effective solutions under time constraints. I am a
+                self-motivated learner, continuously exploring new technologies
+                to grow as a software engineer.
               </p>
 
               <div className="space-y-4 pt-6">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-purple-500"></div>
-                  <p className="text-gray-400">
-                    Developing Experience
-                  </p>
+                  <p className="text-gray-400">Developing Experience</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-pink-500"></div>
@@ -164,7 +241,9 @@ export function AboutMe() {
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
-                  <p className="text-gray-400">Full-Stack Developer& Software Engineer</p>
+                  <p className="text-gray-400">
+                    Full-Stack Developer & Software Engineer
+                  </p>
                 </div>
               </div>
             </div>
