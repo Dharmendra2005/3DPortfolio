@@ -164,7 +164,7 @@ export function Contact() {
                 <motion.a
                   whileHover={{ scale: 1.2, y: -5 }}
                   whileTap={{ scale: 0.9 }}
-                  href="#"
+                  href="https://github.com/Dharmendra2005"
                   className="p-3 bg-white/10 rounded-lg hover:bg-purple-600/30 transition-all group"
                 >
                   <svg
@@ -179,7 +179,7 @@ export function Contact() {
                 <motion.a
                   whileHover={{ scale: 1.2, y: -5 }}
                   whileTap={{ scale: 0.9 }}
-                  href="#"
+                  href="https://www.linkedin.com/in/dharmendra-gora-7064872a3/"
                   className="p-3 bg-white/10 rounded-lg hover:bg-blue-600/30 transition-all group"
                 >
                   <svg
