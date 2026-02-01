@@ -30,14 +30,14 @@ const timelineEvents = [
     icon: "📚",
   },
   {
-    type: "experience",
-    title: "AI/ML Engineer",
-    subtitle: "Startup XYZ",
-    institution: "Remote",
-    duration: "Jan 2024 - Present",
+    type: "education",
+    title: "Minor in CyberSecurity",
+    subtitle: "Empowering people and technology to safeguard information confidentiality, integrity, and availability",
+    institution: "IIIT Dharwad",
+    duration: "Aug 2024 - May 2026",
     details:
-      "Developed ML models, built data pipelines, deployed models on AWS",
-    icon: "🤖",
+      "Network Security, Cryptography, Ethical Hacking",
+    icon: "🔐",
   },
   {
     type: "achievement",

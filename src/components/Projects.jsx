@@ -47,18 +47,18 @@ const projects = [
     title: "AI Chat Assistant",
     description:
       "An intelligent chatbot powered by OpenAI API with real-time responses and context awareness.",
-    tech: ["React", "OpenAI", "Node.js", "MongoDB"],
+    tech: ["React", "OpenAI", "Node.js", "PostgreSQL"],
     link: "#",
     github: "#",
     gradient: "from-purple-600 to-blue-600",
   },
   {
-    title: "E-Commerce Platform",
+    title: "E-Commerce Shopping Platform",
     description:
       "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
-    tech: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
+    tech: ["Express", "EJS", "Stripe", "MongoDB", "Tailwind"],
     link: "#",
-    github: "#",
+    github: "https://github.com/Dharmendra2005/SCATCH.git",
     gradient: "from-pink-600 to-purple-600",
   },
   {
@@ -67,7 +67,7 @@ const projects = [
       "Interactive 3D portfolio showcasing projects with smooth animations and modern design.",
     tech: ["Three.js", "React", "Framer Motion", "Vite"],
     link: "#",
-    github: "#",
+    github: "https://github.com/Dharmendra2005/3DPortfolio.git",
     gradient: "from-cyan-600 to-pink-600",
   },
   {
