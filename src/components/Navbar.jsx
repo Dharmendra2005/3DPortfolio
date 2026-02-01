@@ -43,7 +43,7 @@ export function Navbar() {
           whileHover={{ scale: 1.1 }}
           className="text-2xl font-bold cursor-pointer"
         >
-          <span className="gradient-text">AJ</span>
+          <span className="gradient-text">DG</span>
         </motion.div>
 
         {/* Desktop Menu */}
@@ -67,6 +67,7 @@ export function Navbar() {
             boxShadow: "0 0 30px rgba(139, 92, 246, 0.5)",
           }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => scrollToSection("contact")}
           className="hidden md:block px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
         >
           Hire Me
@@ -120,6 +121,7 @@ export function Navbar() {
           ))}
           <motion.button
             whileHover={{ scale: 1.02 }}
+            onClick={() => scrollToSection("contact")}
             className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold mt-4"
           >
             Hire Me
