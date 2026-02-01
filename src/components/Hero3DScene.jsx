@@ -94,7 +94,7 @@ export function Hero3DScene() {
           className="mb-8"
         >
           <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400">
-            Full Stack Developer | Software Engineer | Web designer | Cyber Security
+            Full Stack Developer | Software Engineer | Cyber Security
           </p>
         </motion.div>
 
@@ -104,7 +104,10 @@ export function Hero3DScene() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex gap-4 pointer-events-auto"
         >
-          <motion.button
+          <motion.a
+            href="https://drive.google.com/file/d/1RDDnCvDP5IbG5QtnnsdxfAunNqsdXdJH/view"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{
               scale: 1.05,
               boxShadow: "0 0 30px rgba(139, 92, 246, 0.5)",
@@ -113,8 +116,9 @@ export function Hero3DScene() {
             className="px-8 py-3 bg-gradient-to-r from-purple-600 to-purple-700 rounded-lg font-semibold text-white hover:shadow-lg transition-all"
           >
             View Resume
-          </motion.button>
-          <motion.button
+          </motion.a>
+          <motion.a
+            href="#contact"
             whileHover={{
               scale: 1.05,
               boxShadow: "0 0 30px rgba(236, 72, 153, 0.5)",
@@ -123,7 +127,7 @@ export function Hero3DScene() {
             className="px-8 py-3 border-2 border-pink-500 text-pink-400 rounded-lg font-semibold hover:bg-pink-500/10 transition-all"
           >
             Contact Me
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
 
