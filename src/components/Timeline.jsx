@@ -15,7 +15,7 @@ const timelineEvents = [
     title: "Full Stack Developer Intern",
     subtitle: "Tech Company Inc.",
     institution: "San Francisco, CA",
-    duration: "Jun 2023 - Aug 2023",
+    duration: "Jun 2025 - Aug 2025",
     details:
       "Built responsive web apps, improved performance by 40%, mentored 2 junior developers",
     icon: "💼",

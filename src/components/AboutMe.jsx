@@ -215,7 +215,7 @@ export function AboutMe() {
                 I am a Computer Science and Engineering student undergraduate at
                 the Indian Institute of Information Technology, Dharwad. I have
                 hands-on experience in building web applications using modern
-                technologies such as React.js, JavaScript, HTML, and CSS, along
+                technologies such as React.js, JavaScript, Node.js, Express.js and using database like Mongodg in NOSQL & Postgres in SQL, along
                 with exposure to AI and AutoML frameworks like H2O.ai.
               </p>
 
