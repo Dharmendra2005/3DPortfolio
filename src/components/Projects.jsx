@@ -48,8 +48,8 @@ const projects = [
     description:
       "An intelligent chatbot powered by OpenAI API with real-time responses and context awareness.",
     tech: ["React", "OpenAI", "Node.js", "PostgreSQL"],
-    link: "#",
-    github: "#",
+    link: "",
+    github: "https://github.com/Dharmendra2005/AIChatAssistant",
     gradient: "from-purple-600 to-blue-600",
   },
   {
@@ -57,7 +57,7 @@ const projects = [
     description:
       "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
     tech: ["Express", "EJS", "Stripe", "MongoDB", "Tailwind"],
-    link: "#",
+    link: "",
     github: "https://github.com/Dharmendra2005/SCATCH.git",
     gradient: "from-pink-600 to-purple-600",
   },
@@ -66,7 +66,7 @@ const projects = [
     description:
       "Interactive 3D portfolio showcasing projects with smooth animations and modern design.",
     tech: ["Three.js", "React", "Framer Motion", "Vite"],
-    link: "#",
+    link: "https://dgportfolio-wheat.vercel.app/",
     github: "https://github.com/Dharmendra2005/3DPortfolio.git",
     gradient: "from-cyan-600 to-pink-600",
   },

@@ -16,9 +16,7 @@ export function Footer() {
             <h3 className="text-2xl font-bold mb-2">
               <span className="gradient-text">DG</span>
             </h3>
-            <p className="text-gray-400 text-sm">
-              Building beautiful digital experiences with modern technologies.
-            </p>
+            
           </motion.div>
 
           {/* Quick Links */}
@@ -31,7 +29,7 @@ export function Footer() {
             <h4 className="font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
-                <a href="#" className="hover:text-purple-400 transition-colors">
+                <a href="#about" className="hover:text-purple-400 transition-colors">
                   About
                 </a>
               </li>
@@ -41,7 +39,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-purple-400 transition-colors">
+                <a href="/about" className="hover:text-purple-400 transition-colors">
                   Resume
                 </a>
               </li>
@@ -61,7 +59,7 @@ export function Footer() {
                 <motion.a
                   key={social}
                   whileHover={{ scale: 1.2, y: -5 }}
-                  href="#"
+                  href="https://www.linkedin.com/in/dharmendra-gora-7064872a3/"
                   className="text-gray-400 hover:text-purple-400 transition-colors text-sm"
                 >
                   {social}
@@ -80,13 +78,9 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400"
+          className="flex justify-center items-center text-sm text-gray-400"
         >
-          <p>&copy; {currentYear} Dharm. All rights reserved.</p>
-          <p>
-            Designed & Built with <span className="text-pink-500">❤️</span>{" "}
-            using React & Framer Motion
-          </p>
+          <p >&copy; {currentYear} Dharm. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>
