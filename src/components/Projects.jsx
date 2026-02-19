@@ -75,7 +75,7 @@ const projects = [
     description:
       "Web app enabling real-time document collaboration with WebSocket integration and live cursors.",
     tech: ["React", "Socket.io", "Express", "Firebase"],
-    link: "#",
+    link: "",
     github: "#",
     gradient: "from-blue-600 to-cyan-600",
   },
@@ -84,7 +84,7 @@ const projects = [
     description:
       "Data visualization dashboard for ML models with interactive charts and model performance metrics.",
     tech: ["Python", "TensorFlow", "Flask", "D3.js"],
-    link: "#",
+    link: "",
     github: "#",
     gradient: "from-orange-600 to-red-600",
   },
@@ -93,10 +93,18 @@ const projects = [
     description:
       "Cross-platform fitness tracking app with workout logging, progress analytics, and social sharing.",
     tech: ["React Native", "Firebase", "Redux", "Expo"],
-    link: "#",
+    link: "",
     github: "#",
     gradient: "from-green-600 to-emerald-600",
   },
+  {
+  title: "Tic-Tac-Toe Game",
+  description: "A classic Tic-Tac-Toe game built using HTML, CSS & JavaScript. Play on a 3×3 grid and try to get three in a row!",
+  tech: ["HTML", "CSS", "JavaScript"],
+  link: "https://tic-tac-toeon.netlify.app/",
+  github: "https://github.com/Dharmendra2005/Tic-Tac-Toe-Game",
+  gradient: "from-yellow-400 via-red-500 to-pink-500",
+},
 ];
 
 export function Projects() {

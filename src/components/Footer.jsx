@@ -34,12 +34,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-purple-400 transition-colors">
+                <a href="#projects" className="hover:text-purple-400 transition-colors">
                   Projects
                 </a>
               </li>
               <li>
-                <a href="/about" className="hover:text-purple-400 transition-colors">
+                <a href="https://drive.google.com/file/d/1RDDnCvDP5IbG5QtnnsdxfAunNqsdXdJH/view" className="hover:text-purple-400 transition-colors">
                   Resume
                 </a>
               </li>
@@ -55,11 +55,35 @@ export function Footer() {
           >
             <h4 className="font-semibold mb-4 text-white">Connect</h4>
             <div className="flex gap-3">
-              {["GitHub", "LinkedIn", "Twitter"].map((social) => (
+              {["GitHub"].map((social) => (
+                <motion.a
+                  key={social}
+                  whileHover={{ scale: 1.2, y: -5 }}
+                  href="https://github.com/Dharmendra2005"
+                  className="text-gray-400 hover:text-purple-400 transition-colors text-sm"
+                >
+                  {social}
+                </motion.a>
+              ))}
+            </div>
+            <div className="flex gap-3">
+              {["LinkedIn"].map((social) => (
                 <motion.a
                   key={social}
                   whileHover={{ scale: 1.2, y: -5 }}
                   href="https://www.linkedin.com/in/dharmendra-gora-7064872a3/"
+                  className="text-gray-400 hover:text-purple-400 transition-colors text-sm"
+                >
+                  {social}
+                </motion.a>
+              ))}
+            </div>
+            <div className="flex gap-3">
+              {["Instagram"].map((social) => (
+                <motion.a
+                  key={social}
+                  whileHover={{ scale: 1.2, y: -5 }}
+                  href="https://www.instagram.com/dharm_gora.23/"
                   className="text-gray-400 hover:text-purple-400 transition-colors text-sm"
                 >
                   {social}

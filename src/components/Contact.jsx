@@ -194,7 +194,7 @@ export function Contact() {
                 <motion.a
                   whileHover={{ scale: 1.2, y: -5 }}
                   whileTap={{ scale: 0.9 }}
-                  href="#"
+                  href="https://www.instagram.com/dharm_gora.23/"
                   className="p-3 bg-white/10 rounded-lg hover:bg-pink-600/30 transition-all group"
                 >
                   <svg
