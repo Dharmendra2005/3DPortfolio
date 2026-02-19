@@ -1,6 +1,12 @@
 import { useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID = "service_hrbvdem";
+const EMAILJS_TEMPLATE_ID = "template_sszvenr";
+const EMAILJS_AUTOREPLY_TEMPLATE_ID = "template_cbl9qcp";
+const EMAILJS_PUBLIC_KEY = "TNiCBCsaBQP7yQWK2";
 
 function FloatingMouseOrb() {
   const meshRef = useRef();
@@ -42,23 +48,102 @@ function ContactScene() {
 }
 
 export function Contact() {
+  const formRef = useRef();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+
+  // Validation functions
+  const validateName = (name) => {
+    if (!name.trim()) return "Name is required";
+    if (name.trim().length < 2) return "Name must be at least 2 characters";
+    if (!/^[a-zA-Z\s]+$/.test(name.trim()))
+      return "Name can only contain letters";
+    return "";
+  };
+
+  const validateEmail = (email) => {
+    if (!email.trim()) return "Email is required";
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) return "Please enter a valid email address";
+    return "";
+  };
+
+  const validateMessage = (message) => {
+    if (!message.trim()) return "Message is required";
+    if (message.trim().length < 10)
+      return "Message must be at least 10 characters";
+    return "";
+  };
+
+  const validateForm = () => {
+    const newErrors = {
+      name: validateName(formData.name),
+      email: validateEmail(formData.email),
+      message: validateMessage(formData.message),
+    };
+    setErrors(newErrors);
+    return !Object.values(newErrors).some((error) => error);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to a backend
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", message: "" });
-    alert("Message sent! I will get back to you soon.");
+    setSubmitStatus(null);
+
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+
+    try {
+      // Send notification to you
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY,
+      );
+
+      // Send auto-reply to the user
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_AUTOREPLY_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY,
+      );
+
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+
+      // Also reset the form element directly
+      formRef.current.reset();
+
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 30000);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setSubmitStatus("error");
+
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 30000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -96,7 +181,27 @@ export function Contact() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+              {/* Success/Error Messages */}
+              {submitStatus === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400"
+                >
+                  ✓ Message sent successfully! I'll get back to you soon.
+                </motion.div>
+              )}
+              {submitStatus === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400"
+                >
+                  ✗ Failed to send message. Please try again.
+                </motion.div>
+              )}
+
               <div>
                 <label className="block text-sm font-semibold mb-2 text-gray-300">
                   Your Name
@@ -106,10 +211,16 @@ export function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-all"
+                  className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:outline-none transition-all ${
+                    errors.name
+                      ? "border-red-500 focus:border-red-500"
+                      : "border-white/20 focus:border-purple-500"
+                  }`}
                   placeholder="type your name here..."
                 />
+                {errors.name && (
+                  <p className="mt-1 text-sm text-red-400">{errors.name}</p>
+                )}
               </div>
 
               <div>
@@ -121,10 +232,16 @@ export function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-all"
+                  className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:outline-none transition-all ${
+                    errors.email
+                      ? "border-red-500 focus:border-red-500"
+                      : "border-white/20 focus:border-purple-500"
+                  }`}
                   placeholder="your email here"
                 />
+                {errors.email && (
+                  <p className="mt-1 text-sm text-red-400">{errors.email}</p>
+                )}
               </div>
 
               <div>
@@ -135,11 +252,17 @@ export function Contact() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  required
                   rows="5"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none resize-none transition-all"
+                  className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:outline-none resize-none transition-all ${
+                    errors.message
+                      ? "border-red-500 focus:border-red-500"
+                      : "border-white/20 focus:border-purple-500"
+                  }`}
                   placeholder="Your message here..."
                 ></textarea>
+                {errors.message && (
+                  <p className="mt-1 text-sm text-red-400">{errors.message}</p>
+                )}
               </div>
 
               <motion.button
@@ -149,9 +272,12 @@ export function Contact() {
                 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all"
+                disabled={isSubmitting}
+                className={`w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all ${
+                  isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                }`}
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </motion.button>
             </form>
 
