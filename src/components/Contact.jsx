@@ -1,36 +1,58 @@
-import { useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import { useRef, useState, useEffect } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useTexture } from "@react-three/drei";
 import { motion } from "framer-motion";
+import * as THREE from "three";
 import emailjs from "@emailjs/browser";
+import myPhoto from "../public/images/Dharm.png";
 
 const EMAILJS_SERVICE_ID = "service_hrbvdem";
 const EMAILJS_TEMPLATE_ID = "template_sszvenr";
 const EMAILJS_AUTOREPLY_TEMPLATE_ID = "template_cbl9qcp";
 const EMAILJS_PUBLIC_KEY = "TNiCBCsaBQP7yQWK2";
 
-function FloatingMouseOrb() {
+function FloatingImage() {
   const meshRef = useRef();
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const texture = useTexture(myPhoto);
+  const mousePos = useRef({ x: 0, y: 0 });
 
-  const handleMouseMove = (e) => {
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      mousePos.current = {
+        x: (e.clientX / window.innerWidth) * 2 - 1,
+        y: -(e.clientY / window.innerHeight) * 2 + 1,
+      };
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  useFrame((state) => {
     if (!meshRef.current) return;
-    const x = (e.clientX / window.innerWidth) * 2 - 1;
-    const y = -(e.clientY / window.innerHeight) * 2 + 1;
-    setMousePos({ x, y });
-  };
+    // Smooth 3D tilt following mouse
+    meshRef.current.rotation.y = THREE.MathUtils.lerp(
+      meshRef.current.rotation.y,
+      mousePos.current.x * 0.45,
+      0.06,
+    );
+    meshRef.current.rotation.x = THREE.MathUtils.lerp(
+      meshRef.current.rotation.x,
+      -mousePos.current.y * 0.45,
+      0.06,
+    );
+    // Gentle floating up & down
+    meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.9) * 0.15;
+  });
 
   return (
-    <mesh
-      ref={meshRef}
-      position={[mousePos.x * 2, mousePos.y * 2, 0]}
-      onPointerMove={handleMouseMove}
-    >
-      <icosahedronGeometry args={[1.5, 5]} />
-      <meshPhongMaterial
-        color="#ec4899"
-        emissive="#ec4899"
-        emissiveIntensity={0.5}
-        shininess={100}
+    <mesh ref={meshRef}>
+      <planeGeometry args={[4.2, 4.2]}/>
+      <meshStandardMaterial
+        map={texture}
+        transparent
+        side={THREE.DoubleSide}
+        roughness={0.2}
+        metalness={0.1}
       />
     </mesh>
   );
@@ -38,11 +60,13 @@ function FloatingMouseOrb() {
 
 function ContactScene() {
   return (
-    <Canvas camera={{ position: [0, 0, 5] }}>
-      <ambientLight intensity={0.7} />
-      <pointLight position={[5, 5, 5]} intensity={1} color="#8b5cf6" />
-      <pointLight position={[-5, -5, -5]} intensity={0.5} color="#ec4899" />
-      <FloatingMouseOrb />
+    <Canvas camera={{ position: [0, 0, 3.5] }}>
+      <ambientLight intensity={1.2} />
+      <pointLight position={[5, 5, 5]} intensity={1.5} color="#8b5cf6" />
+      <pointLight position={[-5, -5, -5]} intensity={0.7} color="#ec4899" />
+      <pointLight position={[0, 5, 0]} intensity={0.8}
+      color="#ffffff"/>
+      <FloatingImage/>
     </Canvas>
   );
 }

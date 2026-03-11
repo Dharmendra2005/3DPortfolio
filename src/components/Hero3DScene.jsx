@@ -105,7 +105,7 @@ export function Hero3DScene() {
           className="flex gap-4 pointer-events-auto"
         >
           <motion.a
-            href="https://drive.google.com/file/d/1RDDnCvDP5IbG5QtnnsdxfAunNqsdXdJH/view"
+            href="https://drive.google.com/file/d/11Lz5GfIiHLWIix-Dovt0hIquWaqlC3vw/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{

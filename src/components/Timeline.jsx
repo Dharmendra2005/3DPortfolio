@@ -10,16 +10,16 @@ const timelineEvents = [
     details: "3rd Year | Student | ",
     icon: "🎓",
   },
-  {
-    type: "experience",
-    title: "Full Stack Developer Intern",
-    subtitle: "Tech Company Inc.",
-    institution: "San Francisco, CA",
-    duration: "Jun 2025 - Aug 2025",
-    details:
-      "Built responsive web apps, improved performance by 40%, mentored 2 junior developers",
-    icon: "💼",
-  },
+  // {
+  //   type: "experience",
+  //   title: "Full Stack Developer Intern",
+  //   subtitle: "Tech Company Inc.",
+  //   institution: "San Francisco, CA",
+  //   duration: "Jun 2025 - Aug 2025",
+  //   details:
+  //     "Built responsive web apps, improved performance by 40%, mentored 2 junior developers",
+  //   icon: "💼",
+  // },
   {
     type: "education",
     title: "10th & 12th Standard",

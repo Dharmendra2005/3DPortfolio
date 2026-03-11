@@ -44,23 +44,22 @@ function TiltCard({ children, index }) {
 
 const projects = [
   {
-    title: "AI Chat Assistant",
-    description:
-      "An intelligent chatbot powered by OpenAI API with real-time responses and context awareness.",
-    tech: ["React", "OpenAI", "Node.js", "PostgreSQL"],
-    link: "",
-    github: "https://github.com/Dharmendra2005/AIChatAssistant",
-    gradient: "from-purple-600 to-blue-600",
-  },
-  {
     title: "E-Commerce Shopping Platform",
     description:
       "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
     tech: ["Express", "EJS", "Stripe", "MongoDB", "Tailwind"],
-    link: "",
+    link: "https://scatchproduce.onrender.com/",
     github: "https://github.com/Dharmendra2005/SCATCH.git",
     gradient: "from-pink-600 to-purple-600",
   },
+  {
+  "title": "Real-Time Ride Sharing Platform",
+  "description": "Built an Uber-like ride sharing platform with real-time ride allocation, driver availability tracking, secure JWT authentication, OTP ride confirmation, and WebSocket-based communication.",
+  "tech": ["MongoDB", "Express", "React", "Node.js", "Socket.IO", "JWT", "Weather Maps API"],
+  "link": "",
+  "github": "",
+  "gradient": "from-indigo-600 to-blue-600"
+},
   {
     title: "3D Portfolio Website",
     description:
@@ -70,33 +69,7 @@ const projects = [
     github: "https://github.com/Dharmendra2005/3DPortfolio.git",
     gradient: "from-cyan-600 to-pink-600",
   },
-  {
-    title: "Real-Time Collaboration App",
-    description:
-      "Web app enabling real-time document collaboration with WebSocket integration and live cursors.",
-    tech: ["React", "Socket.io", "Express", "Firebase"],
-    link: "",
-    github: "#",
-    gradient: "from-blue-600 to-cyan-600",
-  },
-  {
-    title: "Machine Learning Dashboard",
-    description:
-      "Data visualization dashboard for ML models with interactive charts and model performance metrics.",
-    tech: ["Python", "TensorFlow", "Flask", "D3.js"],
-    link: "",
-    github: "#",
-    gradient: "from-orange-600 to-red-600",
-  },
-  {
-    title: "Mobile App - Fitness Tracker",
-    description:
-      "Cross-platform fitness tracking app with workout logging, progress analytics, and social sharing.",
-    tech: ["React Native", "Firebase", "Redux", "Expo"],
-    link: "",
-    github: "#",
-    gradient: "from-green-600 to-emerald-600",
-  },
+  
   {
   title: "Tic-Tac-Toe Game",
   description: "A classic Tic-Tac-Toe game built using HTML, CSS & JavaScript. Play on a 3×3 grid and try to get three in a row!",
@@ -105,6 +78,23 @@ const projects = [
   github: "https://github.com/Dharmendra2005/Tic-Tac-Toe-Game",
   gradient: "from-yellow-400 via-red-500 to-pink-500",
 },
+{
+  "title": "Resume Builder Website",
+  "description": "Web application that allows users to create professional resumes with customizable templates, real-time preview, and easy export functionality.",
+  "tech": ["React"],
+  "link": "https://resume-builder-website-a7eo-onv2fukj5.vercel.app/",
+  "github": "https://github.com/Dharmendra2005/ResumeBuilderWebsite.git",
+  "gradient": "from-green-500 to-emerald-600"
+}
+//  {
+//     title: "AI Chat Assistant",
+//     description:
+//       "An intelligent chatbot powered by OpenAI API with real-time responses and context awareness.",
+//     tech: ["React", "OpenAI", "Node.js", "PostgreSQL"],
+//     link: "",
+//     github: "https://github.com/Dharmendra2005/AIChatAssistant",
+//     gradient: "from-purple-600 to-blue-600",
+//   },
 ];
 
 export function Projects() {
